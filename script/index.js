@@ -1,5 +1,11 @@
 // console.log("I'm JS")
 
+
+const createElements = (arr) => {
+    const htmlElements = arr.map(el => `<span class="btn">${el}</span>`)
+    return htmlElements.join(" ");
+}
+
 const loadLessons = () => {
     // const url = "https://openapi.programming-hero.com/api/levels/all"
 
@@ -55,7 +61,7 @@ const displayWordDetails = (word) => {
 
                 <div class="">
                     <h2 class="font-bold">Meaning</h2>
-                    <p>${word.meaning}</p>
+                    <p>${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি" }</p>
                 </div>
                  
                 <div class="">
@@ -65,9 +71,8 @@ const displayWordDetails = (word) => {
 
                 <div class="">
                     <h2 class="font-bold">Synonyms</h2>
-                    <span class="btn">Syn1</span>
-                    <span class="btn">Syn1</span>
-                    <span class="btn">Syn1</span>
+                    <div class="">${createElements(word.synonyms)}</div>
+                    
                 </div>`
 
     document.getElementById("word_modal").showModal();
