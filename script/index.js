@@ -9,12 +9,68 @@ const loadLessons = () => {
 };
 
 const loadLevelWord = (id) => {
-    
+
     const url = `https://openapi.programming-hero.com/api/level/${id}`
 
     fetch(url)
-    .then(res => res.json())
-    .then(data => console.log(data))
+        .then(res => res.json())
+        .then(data => displayLevelWord(data.data))
+}
+
+
+const displayLevelWord = (words) => {
+    // console.log(words);
+
+    //1.get the container
+
+    const wordContainer = document.getElementById("word-container");
+    wordContainer.innerHTML = "";
+
+    if (words.length == 0) {
+        // alert("no word detected");
+
+        wordContainer.innerHTML = `
+          <div class="text-center col-span-full rounded-xl py-10 space-y-6 font-bangla">
+          <img class="mx-auto" src="./assets/alert-error.png"/>
+        <p class="text-xl font-medium text-gray-400">এই lesson এ এখনো কোন Vocabulary যুক্ত করা হয় নি।</p>
+        <h2 class="font-bold text-4xl">Next Lesson এ যান</h2>
+      </div>
+        `;
+
+        return;
+    }
+
+
+    //2.get into every word
+
+    words.forEach(word => {
+        // console.log(word);
+
+        //3.create html element
+
+        const card = document.createElement("div");
+        card.innerHTML = `
+          <div class="bg-white rounded-xl shadow-sm text-center py-10 px-5 space-y-4">
+            <h2 class="font-bold text-2xl">${word.word ? word.word : "শব্দ পাওয়া যায় নি"}</h2>
+            <p class="font-semibold ">meaning/Pronounciation</p>
+            <div class="font-medium text-2xl font-bangla">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি"} / ${word.pronunciation? word.pronunciation : "উচ্চারন দেওয়া নেই" }"</div>
+            <div class="flex justify-between items-center">
+                <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
+                <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
+
+            </div>
+
+        </div>`;
+
+        //4.append into container
+
+        wordContainer.append(card);
+    })
+
+
+
+
+
 }
 
 const displayLesson = (lessons) => {
@@ -40,8 +96,6 @@ const displayLesson = (lessons) => {
         //4.append into container
 
 
-
-
         levelContainer.append(btnDiv);
 
     }
@@ -53,6 +107,8 @@ const displayLesson = (lessons) => {
 
 
 };
+
+
 
 
 
