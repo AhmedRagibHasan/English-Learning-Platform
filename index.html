@@ -98,12 +98,12 @@
         <div class="content flex-col flex-1 text-center md:text-left">
             <h2 class="text-4xl font-bold mb-8"><span class="text-sky-500">English</span>
                 is Easy! !</h2>
-            <p class="font-bangla">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে
+            <p class="font-bangla my-5">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে
                 চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
-            <div class="flex flex-col gap-3 max-w-sm">
-                <input type="text" placeholder="Enter Your Name">
-                <input type="password">
-                <button class="btn btn-active btn-primary">Get Started</button>
+            <div class="flex flex-col gap-3">
+                <input class="w-[340px] h-[40px] px-4 border border-gray-300 rounded" type="text" placeholder="Enter Your Name">
+                <input class="w-[340px] h-[40px] px-4 border border-gray-300 rounded" type="password" placeholder="Enter Password">
+                <button class="btn btn-active btn-primary w-[114px] h-[40px] whitespace-nowrap">Get Started</button>
             </div>
         </div>
 
@@ -123,8 +123,30 @@
         <h2 class="text-4xl font-bold mb-8 text-center"><span class="text-sky-500">Let's</span>
             Learn Vocabulary</h2>
 
-        <div class="flex gap-5 flex-wrap justify-center" id="level-container"></div>
+        <div class="flex gap-5 flex-wrap justify-center" id="level-container">
+
+        </div>
+
     </section>
+
+    <!-- search field section  -->
+
+    <section class="flex justify-center py-10">
+        <div class="join">
+            <div>
+                <label class="input validator join-item">
+                  
+                     
+                    <input id="input-search" type="text" placeholder="Search Vocabulary Now" required />
+                </label>
+                
+            </div>
+            <button id="btn-search" class="btn btn-primary join-item">Search</button>
+        </div>
+
+    </section>
+
+    <!-- Loading Bar/Loading Spinner Section  -->
 
 
     <section id="spinner" class="flex justify-center items-center py-10 hidden">
@@ -142,19 +164,22 @@
     </section>
 
 
-    <!-- Open the modal using ID.showModal() method -->
-    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <!-- HTML for Modal  -->
+
+
+    
+    
     <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
             <div id="details-container" class="space-y-5">
-                
-                    
 
-                   
+
+
+
             </div>
 
 
-        
+
             <div class="modal-action">
                 <form method="dialog">
                     <!-- if there is a button in form, it will close the modal -->
